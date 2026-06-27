@@ -1,6 +1,6 @@
 /**
- * Validate input logic for BFHL API
- */
+ *Validate input logic for BFHL API
+*/
 
 class Validator {
   constructor(data) {
@@ -10,28 +10,27 @@ class Validator {
     this.validEdges = [];
   }
 
-  /**
-   * Check if a string is a valid node format (X->Y where X and Y are single uppercase letters)
-   */
+
+  /*Check if a string is a valid node format (X->Y where X and Y are single uppercase letters)*/
+
   isValidNodeFormat(entry) {
+    //Type check
     if (!entry || typeof entry !== "string") return false;
 
     const trimmed = entry.trim();
     if (!trimmed) return false;
 
-    // Check format: must be X->Y where X and Y are single uppercase letters
+    // Uppercase check
     const pattern = /^[A-Z]->[A-Z]$/;
     if (!pattern.test(trimmed)) return false;
 
-    // Check for self-loop (A->A)
+    // Self-loop check (A->A)
     if (trimmed[0] === trimmed[3]) return false;
 
     return trimmed;
   }
 
-  /**
-   * Process and validate all entries
-   */
+  /*Process and validate all entries*/
   validateEntries() {
     const seenEdges = new Set();
 
