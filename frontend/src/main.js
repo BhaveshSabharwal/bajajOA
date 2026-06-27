@@ -20,9 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Determine API URL (handle local dev and production on Vercel)
   const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  // Vercel routes /bfhl to the backend, but if local with Vite, the backend might be on a different port unless proxied.
-  // We'll use absolute URL if local and different port, else relative for Vercel.
-  const API_URL = isLocal && window.location.port !== '3000' ? 'http://localhost:3000/bfhl' : '/bfhl';
+  // Vercel experimentalServices routes the backend to /_/backend
+  const API_URL = isLocal && window.location.port !== '3000' ? 'http://localhost:3000/bfhl' : '/_/backend/bfhl';
 
   submitBtn.addEventListener('click', async () => {
     let rawInput = nodeInput.value.trim();
