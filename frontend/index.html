@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hierarchy Processor | BFHL Challenge</title>
+  <meta name="description" content="Process hierarchical nodes with this modern tool." />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>Hierarchy Processor</h1>
+      <p>Analyze hierarchical structures with ease</p>
+    </header>
+
+    <main>
+      <section class="input-section glass-panel">
+        <h2>Input Nodes</h2>
+        <p class="subtitle">Enter nodes in X->Y format, separated by commas or newlines.</p>
+        <textarea id="nodeInput" placeholder='"A->B", "A->C", "B->D", "C->E"' rows="4"></textarea>
+        <div class="actions">
+          <button id="submitBtn" class="primary-btn">Process Hierarchy</button>
+        </div>
+        <div id="errorBox" class="error-box hidden"></div>
+      </section>
+
+      <section id="resultsSection" class="results-section glass-panel hidden">
+        <h2>Results</h2>
+
+        <div class="summary-cards">
+          <div class="card">
+            <h3>Total Trees</h3>
+            <p id="totalTrees">0</p>
+          </div>
+          <div class="card">
+            <h3>Total Cycles</h3>
+            <p id="totalCycles">0</p>
+          </div>
+          <div class="card">
+            <h3>Largest Root</h3>
+            <p id="largestRoot">-</p>
+          </div>
+        </div>
+
+        <div class="details-grid">
+          <div class="detail-box">
+            <h3>Hierarchies</h3>
+            <pre id="hierarchiesOutput"></pre>
+          </div>
+          <div class="detail-box">
+            <h3>Invalid Entries</h3>
+            <pre id="invalidOutput"></pre>
+          </div>
+          <div class="detail-box">
+            <h3>Duplicate Edges</h3>
+            <pre id="duplicateOutput"></pre>
+          </div>
+        </div>
+
+        <div class="identity-info">
+          <p><strong>User ID:</strong> <span id="userId"></span></p>
+          <p><strong>Email:</strong> <span id="emailId"></span></p>
+          <p><strong>Roll No:</strong> <span id="rollNo"></span></p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
